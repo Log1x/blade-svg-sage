@@ -22,13 +22,13 @@ Here's a couple filters to get you started. The examples shown below are using t
 
 ```
 add_filter('bladesvg_spritesheet_path', function () {
-    return \App\sage('assets')->get('svg');
+    return get_stylesheet_directory() . '/dist/svg';
 });
 ```
 
 ```
 add_filter('bladesvg_icon_path', function () {
-    return \App\sage('assets')->get('svg/icons');
+    return get_stylesheet_directory() . '/dist/svg/icons';
 });
 ```
 

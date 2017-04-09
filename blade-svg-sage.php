@@ -38,8 +38,8 @@ function init()
 {
     \App\sage()->singleton(IconFactory::class, function () {
         $config = [
-            'spritesheet_path' => apply_filters('bladesvg_spritesheet_path', \App\sage('assets')->get('svg')),
-            'icon_path'        => apply_filters('bladesvg_icon_path', \App\sage('assets')->get('svg/icons')),
+            'spritesheet_path' => apply_filters('bladesvg_spritesheet_path', get_stylesheet_directory() . '/dist/svg'),
+            'icon_path'        => apply_filters('bladesvg_icon_path', get_stylesheet_directory() . '/dist/svg/icons'),
             'inline'           => apply_filters('bladesvg_inline', true),
             'class'            => apply_filters('bladesvg_class', 'icon'),
             'sprite_prefix'    => apply_filters('bladesvg_sprite_prefix', '')
