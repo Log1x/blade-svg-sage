@@ -33,7 +33,7 @@ add_filter('bladesvg_icon_path', function () {
 ```
 
 ```
-add_filter('bladesvg_bladesvg_inline', function () {
+add_filter('bladesvg_inline', function () {
     return true;
 });
 ```
