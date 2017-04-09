@@ -8,13 +8,16 @@ Blade SVG for Sage is a fork of Blade SVG by Adam Wathan allowing you to easily 
 
 ## Installation
 
-**Composer**
-Recommended method for installation is [Roots Bedrock](https://github.com/roots/bedrock) or [WP-CLI](http://wp-cli.org/)
+#### Composer
+Recommended method for installation is [Roots Bedrock](https://github.com/roots/bedrock), [WP-CLI](http://wp-cli.org/), or having a theme specific `composer.json` file.
 
 ```
 $ composer require log1x/blade-svg-sage
-$ wp plugin activate blade-svg-sage
 ```
+
+#### Manual
+* Download the [zip file](https://github.com/Log1x/blade-svg-sage/releases/tag/1.0.0)
+* Unzip to your sites `mu-plugins` folder
 
 ## Setup
 Here's a couple filters to get you started. The examples shown below are using the default values.
