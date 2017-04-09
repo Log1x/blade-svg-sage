@@ -1,0 +1,22 @@
+{
+    "name": "log1x/sage-svg",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brandon Nifong",
+            "email": "brandon@tendency.me"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^5.3",
+        "illuminate/filesystem": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "BladeSvg\\": "src/BladeSvg"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}
