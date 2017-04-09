@@ -16,7 +16,7 @@ $ composer require log1x/blade-svg-sage
 ```
 
 #### Manual
-* Download the [zip file](https://github.com/Log1x/blade-svg-sage/releases/tag/1.0.0-beta)
+* Download the [zip file](https://github.com/Log1x/blade-svg-sage/releases/tag/v1.0.0)
 * Unzip to your sites `mu-plugins` folder
 
 ## Setup
