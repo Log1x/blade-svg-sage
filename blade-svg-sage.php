@@ -42,7 +42,7 @@ function init()
             'icon_path'        => apply_filters('bladesvg_icon_path', \App\sage('assets')->get('svg/icons'),
             'inline'           => apply_filters('bladesvg_inline', true),
             'class'            => apply_filters('bladesvg_class', 'icon'),
-            'sprite_prefix'    => apply_filters('bladesvg_spritesheet_path', '')
+            'sprite_prefix'    => apply_filters('bladesvg_sprite_prefix', '')
         ];
 
         return new IconFactory($config);
