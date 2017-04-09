@@ -1,6 +1,8 @@
 {
     "name": "log1x/blade-svg-sage",
+    "type": "wordpress-muplugin",
     "license": "MIT",
+    "homepage": "https://github.com/log1x/blade-svg-sage",
     "authors": [
         {
             "name": "Brandon Nifong",
@@ -13,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "BladeSvg\\": "src/BladeSvg"
+            "BladeSvg\\": "src/lib/BladeSvg"
         },
         "files": [
             "src/helpers.php"
