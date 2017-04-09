@@ -4,13 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita792151705250b9625e92e00df21f797
+class ComposerStaticInita88edf7b844e933b8a295fc68823d05b
 {
     public static $files = array (
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
-        '2fb983e63247f84d8365e00e3015e40b' => __DIR__ . '/../..' . '/src/helpers.php',
+        '66b325e7c64a0b044033b9aae17ea534' => __DIR__ . '/../..' . '/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -85,7 +85,7 @@ class ComposerStaticInita792151705250b9625e92e00df21f797
         ),
         'BladeSvg\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/BladeSvg',
+            0 => __DIR__ . '/../..' . '/src/lib/BladeSvg',
         ),
     );
 
@@ -649,10 +649,10 @@ class ComposerStaticInita792151705250b9625e92e00df21f797
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita792151705250b9625e92e00df21f797::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita792151705250b9625e92e00df21f797::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInita792151705250b9625e92e00df21f797::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInita792151705250b9625e92e00df21f797::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita88edf7b844e933b8a295fc68823d05b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita88edf7b844e933b8a295fc68823d05b::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInita88edf7b844e933b8a295fc68823d05b::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInita88edf7b844e933b8a295fc68823d05b::$classMap;
 
         }, null, ClassLoader::class);
     }
