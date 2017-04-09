@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name:        BladeSvg for Sage
+Plugin Name:        Blade SVG for Sage
 Plugin URI:         http://github.com/log1x/blade-svg-sage
-Description:        WordPress plugin to add BladeSvg to Sage 9
+Description:        WordPress plugin to add Blade SVG to Sage 9
 Version:            1.0.0
 Author:             Log1x
 Author URI:         http://github.com/log1x/
@@ -27,7 +27,7 @@ if (!defined('ABSPATH')) {
  * Ensure dependencies are loaded
  */
 if (!file_exists($composer = __DIR__.'/vendor/autoload.php') && !file_exists($composer = __DIR__.'/dist/autoload.php')) {
-    return new \WP_Error('<h1>Error</h1><p>Please run `composer install` to use Sage Svg.</p>', 'Autoloader not found.');
+    return new \WP_Error('<h1>Error</h1><p>Please run `composer install` to use Blade SVG.</p>', 'Autoloader not found.');
 }
 require_once $composer;
 
