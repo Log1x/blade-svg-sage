@@ -1,8 +1,8 @@
 # Blade SVG for Sage
 
 ![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![WordPress](https://img.shields.io/badge/wordpress-4.7.3%20tested-brightgreen.svg)
-![Version](https://img.shields.io/badge/release-v1.0.0-green.svg)
+![WordPress](https://img.shields.io/badge/sage-9%20tested-brightgreen.svg)
+![Version](https://img.shields.io/badge/release-v1.0.0.beta-blue.svg)
 
 Blade SVG for Sage is a fork of Blade SVG by Adam Wathan allowing you to easily use SVG icons in your Blade templates, either as inline SVG or using SVG sprites when using Sage 9.
 
@@ -16,7 +16,7 @@ $ composer require log1x/blade-svg-sage
 ```
 
 #### Manual
-* Download the [zip file](https://github.com/Log1x/blade-svg-sage/releases/tag/1.0.0)
+* Download the [zip file](https://github.com/Log1x/blade-svg-sage/releases/tag/1.0.0-beta)
 * Unzip to your sites `mu-plugins` folder
 
 ## Setup
