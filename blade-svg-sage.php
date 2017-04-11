@@ -3,7 +3,7 @@
 Plugin Name:        Blade SVG for Sage
 Plugin URI:         http://github.com/log1x/blade-svg-sage
 Description:        WordPress plugin to add Blade SVG to Sage 9
-Version:            1.0.0
+Version:            1.0.1
 Author:             Log1x
 Author URI:         http://github.com/log1x/
 License:            MIT License
@@ -36,17 +36,19 @@ require_once $composer;
  */
 function init()
 {
-    \App\sage()->singleton(IconFactory::class, function () {
-        $config = [
-            'spritesheet_path' => apply_filters('bladesvg_spritesheet_path', get_stylesheet_directory() . '/dist/svg'),
-            'icon_path'        => apply_filters('bladesvg_icon_path', get_stylesheet_directory() . '/dist/svg/icons'),
-            'inline'           => apply_filters('bladesvg_inline', true),
-            'class'            => apply_filters('bladesvg_class', 'icon'),
-            'sprite_prefix'    => apply_filters('bladesvg_sprite_prefix', '')
-        ];
+    if (function_exists('\App\sage')) {
+        \App\sage()->singleton(IconFactory::class, function () {
+            $config = [
+                'spritesheet_path' => apply_filters('bladesvg_spritesheet_path', get_stylesheet_directory() . '/dist/svg'),
+                'icon_path'        => apply_filters('bladesvg_icon_path', get_stylesheet_directory() . '/dist/svg/icons'),
+                'inline'           => apply_filters('bladesvg_inline', true),
+                'class'            => apply_filters('bladesvg_class', 'icon'),
+                'sprite_prefix'    => apply_filters('bladesvg_sprite_prefix', '')
+            ];
 
-        return new IconFactory($config);
-    });
+            return new IconFactory($config);
+        });
+    }
 }
 
 /**
@@ -54,9 +56,11 @@ function init()
  */
 function directive()
 {
-    \App\sage('blade')->compiler()->directive('icon', function ($expression) {
-        return "<?php echo e(svg_icon($expression)); ?>";
-    });
+    if (function_exists('\App\sage')) {
+        \App\sage('blade')->compiler()->directive('icon', function ($expression) {
+            return "<?php echo e(svg_icon($expression)); ?>";
+        });
+    }
 }
 
 add_action('after_setup_theme', __NAMESPACE__ . '\init', 30);
