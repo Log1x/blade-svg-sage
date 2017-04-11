@@ -45,7 +45,7 @@ class IconFactory
         return new HtmlString(
             sprintf(
                 '<div style="height: 0; width: 0; position: absolute; visibility: hidden;">%s</div>',
-                file_get_contents($this->spritesheetPath())
+                $this->files->exists($this->spritesheetPath()) ? $this->files->get($this->spritesheetPath()) : ''
             )
         );
     }
@@ -87,7 +87,8 @@ class IconFactory
     public function getSvg($name)
     {
         return $this->svgCache->get($name, function () use ($name) {
-            return $this->svgCache[$name] = $this->files->get(sprintf('%s/%s.svg', rtrim($this->iconPath()), $name));
+            $path = sprintf('%s/%s.svg', rtrim($this->iconPath()), $name);
+            return $this->svgCache[$name] = $this->files->exists($path) ? $this->files->get($path) : '';
         });
     }
 }

@@ -3,7 +3,7 @@
 Plugin Name:        Blade SVG for Sage
 Plugin URI:         http://github.com/log1x/blade-svg-sage
 Description:        WordPress plugin to add Blade SVG to Sage 9
-Version:            1.0.1
+Version:            1.0.2
 Author:             Log1x
 Author URI:         http://github.com/log1x/
 License:            MIT License
