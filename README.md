@@ -1,6 +1,6 @@
 # Blade SVG for Sage
 
-![Version](https://img.shields.io/badge/release-v1.0.2.beta-blue.svg)
+![Version](https://img.shields.io/badge/release-v1.0.3.beta-blue.svg)
 
 Blade SVG for Sage is a fork of [Blade SVG](https://github.com/adamwathan/blade-svg) by Adam Wathan allowing you to easily use SVG icons in your Blade templates, either as inline SVG or using SVG sprites when using Sage 9.
 
