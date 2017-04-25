@@ -39,8 +39,8 @@ function init()
     if (function_exists('\App\sage')) {
         \App\sage()->singleton(IconFactory::class, function () {
             $config = [
-                'spritesheet_path' => apply_filters('bladesvg_spritesheet_path', get_stylesheet_directory() . '/dist/svg'),
-                'icon_path'        => apply_filters('bladesvg_icon_path', get_stylesheet_directory() . '/dist/svg/icons'),
+                'spritesheet_path' => apply_filters('bladesvg_spritesheet_path', $_SERVER['DOCUMENT_ROOT'] . parse_url(\App\asset_path('images/icons'), PHP_URL_PATH)),
+                'icon_path'        => apply_filters('bladesvg_icon_path', $_SERVER['DOCUMENT_ROOT'] . parse_url(\App\asset_path('images/icons'), PHP_URL_PATH)),
                 'inline'           => apply_filters('bladesvg_inline', true),
                 'class'            => apply_filters('bladesvg_class', 'icon'),
                 'sprite_prefix'    => apply_filters('bladesvg_sprite_prefix', '')
