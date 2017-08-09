@@ -1,8 +1,11 @@
 # Blade SVG for Sage
 
-![Version](https://img.shields.io/badge/release-v1.0.3.beta-blue.svg)
+[![Latest Stable Version](https://poser.pugx.org/log1x/blade-svg-sage/v/stable)](https://packagist.org/packages/log1x/blade-svg-sage)
 
-Blade SVG for Sage is a fork of [Blade SVG](https://github.com/adamwathan/blade-svg) by Adam Wathan allowing you to easily use SVG icons in your Blade templates, either as inline SVG or using SVG sprites when using Sage 9.
+[![Total Downloads](https://poser.pugx.org/log1x/blade-svg-sage/downloads)](https://packagist.org/packages/log1x/blade-svg-sage)
+
+
+Blade SVG for Sage is a fork of [Blade SVG](https://github.com/adamwathan/blade-svg) by Adam Wathan allowing you to easily use SVG's in your Blade templates, either as inline SVG or using SVG sprites when using Sage 9.
 
 ## Installation
 
@@ -16,7 +19,7 @@ $ composer require log1x/blade-svg-sage
 If the above works as intended, the plugin should be ready for use as it installs as an `mu-plugin`.
 
 #### Manual
-* Download the [zip file](https://github.com/Log1x/blade-svg-sage/releases/tag/v1.0.0)
+* Download the [zip file](https://github.com/Log1x/blade-svg-sage/releases/tag/v1.0.4)
 * Unzip to your sites `mu-plugins` folder
 
 ## Setup
@@ -24,13 +27,13 @@ Here's a couple filters to get you started. The examples shown below are using t
 
 ```
 add_filter('bladesvg_spritesheet_path', function () {
-    return get_stylesheet_directory() . '/dist/svg';
+    return parse_asset_path('images/svg/icons');
 });
 ```
 
 ```
-add_filter('bladesvg_icon_path', function () {
-    return get_stylesheet_directory() . '/dist/svg/icons';
+add_filter('bladesvg_image_path', function () {
+    return parse_asset_path('images/svg/icons');
 });
 ```
 
@@ -42,7 +45,7 @@ add_filter('bladesvg_inline', function () {
 
 ```
 add_filter('bladesvg_class', function () {
-    return 'icon';
+    return 'svg';
 });
 ```
 
@@ -53,4 +56,11 @@ add_filter('bladesvg_sprite_prefix', function () {
 ```
 
 ## Usage
-For examples of usage, please refer to the original [blade-svg readme](https://github.com/adamwathan/blade-svg/blob/master/readme.md).
+```
+<ul>
+  <li>@svg('phone')</li>
+  <li>@svg('arrow-right')</li>
+</ul>
+```
+
+For more examples of usage, please refer to the original [blade-svg readme](https://github.com/adamwathan/blade-svg/blob/master/readme.md).
