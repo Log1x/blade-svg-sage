@@ -10,6 +10,7 @@ if (!function_exists('get_dist_path')) {
 if (!function_exists('svg_image')) {
     function svg_image($icon, $class = '', $attrs = [])
     {
+        return wp_die('test');
         return \App\sage(\BladeSvg\SvgFactory::class)->svg(\App\sage('assets')->get($icon), $class, $attrs);
     }
 }
