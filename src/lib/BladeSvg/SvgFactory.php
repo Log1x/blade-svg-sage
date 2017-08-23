@@ -88,7 +88,7 @@ class SvgFactory
     {
         return $this->svgCache->get($name, function () use ($name) {
             $path = sprintf('%s/%s.svg', rtrim($this->svgPath()), $name);
-            return $this->svgCache[$name] = $this->files->exists($path) ? $this->files->get($path) : $this->svgPath().' not found.';
+            return $this->svgCache[$name] = $this->files->exists($path) ? $this->files->get($path) : trailingslashit($this->svgPath()) . $name . '.svg not found.';
         });
     }
 }
