@@ -1,6 +1,6 @@
 {
     "name": "log1x/blade-svg-sage",
-    "type": "wordpress-muplugin",
+    "type": "package",
     "license": "MIT",
     "homepage": "https://github.com/log1x/blade-svg-sage",
     "authors": [
@@ -10,15 +10,12 @@
         }
     ],
     "require": {
-        "illuminate/support": "^5.3",
-        "illuminate/filesystem": "^5.3"
+        "nothingworks/blade-svg": "^0.2.1"
     },
     "autoload": {
-        "psr-4": {
-            "BladeSvg\\": "src/lib/BladeSvg"
-        },
         "files": [
-            "src/helpers.php"
+            "src/helpers.php",
+            "src/blade-svg-sage.php"
         ]
     }
 }
