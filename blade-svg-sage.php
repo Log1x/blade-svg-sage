@@ -41,7 +41,7 @@ function init()
             $config = [
                 'spritesheet_path' => apply_filters('bladesvg_spritesheet_path', get_dist_path('images/svg/icons')),
                 'svg_path'         => apply_filters('bladesvg_image_path', get_dist_path('images/svg/icons')),
-                'inline'           => apply_filters('bladesvg_inline', false),
+                'inline'           => apply_filters('bladesvg_inline', true),
                 'class'            => apply_filters('bladesvg_class', 'svg'),
                 'sprite_prefix'    => apply_filters('bladesvg_sprite_prefix', '')
             ];
