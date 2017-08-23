@@ -1,16 +1,4 @@
 <?php
-/*
-Plugin Name:        Blade SVG for Sage
-Plugin URI:         http://github.com/log1x/blade-svg-sage
-Description:        Simple package to add Blade SVG to Sage 9
-Version:            1.0.5
-Author:             Log1x
-Author URI:         https://log1x.com
-License:            MIT License
-License URI:        http://opensource.org/licenses/MIT
-GitHub Plugin URI:  log1x/blade-svg-sage
-GitHub Branch:      master
-*/
 
 namespace BladeSvgSage;
 
@@ -25,7 +13,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Initialize the plugin
+ * Initialize SvgFactory
  */
 function init()
 {
@@ -51,11 +39,11 @@ function directive()
 {
     if (function_exists('\App\sage')) {
         sage('blade')->compiler()->directive('icon', function ($expression) {
-            return "<?php echo e(svg_image($expression)) ?>";
+            return "<?php echo e(\BladeSvgSage\svg_image($expression)) ?>";
         });
 
         sage('blade')->compiler()->directive('svg', function ($expression) {
-            return "<?php echo e(svg_image($expression)) ?>";
+            return "<?php echo e(\BladeSvgSage\svg_image($expression)) ?>";
         });
     }
 }

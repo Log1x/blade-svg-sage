@@ -50,7 +50,7 @@ add_filter('bladesvg_sprite_prefix', function () {
 ```
 <ul>
   <li>@svg('phone')</li>
-  <li>{{ svg_image('phone-alt') }}</li>
+  <li>{{ \BladeSvgSage\svg_image('phone-alt') }}</li>
 </ul>
 ```
 
