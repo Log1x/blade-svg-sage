@@ -24,13 +24,13 @@ Here's a couple filters to get you started. The examples shown below are using t
 
 ```
 add_filter('bladesvg_spritesheet_path', function () {
-    return parse_asset_path('images/svg/icons');
+    return get_dist_path('images/svg/icons');
 });
 ```
 
 ```
 add_filter('bladesvg_image_path', function () {
-    return parse_asset_path('images/svg/icons');
+    return get_dist_path('images/svg/icons');
 });
 ```
 
