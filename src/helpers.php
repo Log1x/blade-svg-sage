@@ -27,8 +27,8 @@ if (!function_exists('svg_icon')) {
 }
 
 if (!function_exists('get_dist_path')) {
-    function get_dist_path($asset)
+    function get_dist_path($path)
     {
-        return trailingslashit(\App\config('theme.dir')) . trailingslashit('dist');
+        return trailingslashit(\App\config('theme.dir')) . trailingslashit('dist') . $path;
     }
 }
