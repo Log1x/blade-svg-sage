@@ -48,18 +48,6 @@ function get_icon_path_abs($icon) {
 }
 
 /**
- * Returns a path without file extension
- *
- * @param  string $icon
- * @return string
- */
-function strip_file_ext($path)
-{
-	$parts = pathinfo($path);
-	return trailingslashit($parts['dirname']) . $parts['filename'];
-}
-
-/**
  * Returns path to icon in a sage theme
  *
  * @param  string $icon
@@ -83,7 +71,7 @@ function get_icon_sage_path($icon)
 	$icon_path_rel = RelPath::getRelativePath($icon_path_abs, get_svg_path());
 
 	// 6. Final icon path without extension expected
-	$icon_imgpath_noext = strip_file_ext($icon_path_rel);
+	$icon_imgpath_noext = pathinfo($icon_path_rel, PATHINFO_FILENAME);
 
 	return $icon_imgpath_noext;
 }
