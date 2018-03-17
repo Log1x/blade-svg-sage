@@ -7,24 +7,25 @@ Blade SVG for Sage is a wrapper for [Blade SVG](https://github.com/adamwathan/bl
 ## Installation
 
 #### Composer
-Install via Composer:
+Install via Composer from your theme directory:
 
 ```
 $ composer require log1x/blade-svg-sage
 ```
 
 ## Setup
-Here's a couple filters to get you started. The examples shown below are using the default values.
+
+Edit `app/filters.php` on your Sage theme and use these filters to modify the default configuration (as in the examples below):
 
 ```
 add_filter('bladesvg_spritesheet_path', function () {
-    return get_dist_path('images/svg/icons');
+    return \BladeSvgSage\get_dist_path('images/svg/icons');
 });
 ```
 
 ```
 add_filter('bladesvg_image_path', function () {
-    return get_dist_path('images/svg/icons');
+    return \BladeSvgSage\get_dist_path('images/svg/icons');
 });
 ```
 
