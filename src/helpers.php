@@ -71,7 +71,7 @@ function get_icon_sage_path($icon)
 	$icon_path_rel = RelPath::getRelativePath($icon_path_abs, get_svg_path());
 
 	// 6. Final icon path without extension expected
-	$icon_imgpath_noext = pathinfo($icon_path_rel, PATHINFO_FILENAME);
+	$icon_imgpath_noext = substr($icon_path_rel, 0, strrpos($icon_path_rel, '.'));
 
 	return $icon_imgpath_noext;
 }
