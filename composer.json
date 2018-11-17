@@ -1,22 +1,36 @@
 {
-    "name": "log1x/blade-svg-sage",
-    "type": "package",
-    "license": "MIT",
-    "homepage": "https://github.com/log1x/blade-svg-sage",
-    "authors": [
-        {
-            "name": "Brandon Nifong",
-            "email": "brandon@tendency.me"
-        }
-    ],
-    "require": {
-        "nothingworks/blade-svg": "^0.2.1",
-		"wikimedia/relpath": "^2.1"
-    },
-    "autoload": {
-        "files": [
-            "src/helpers.php",
-            "src/blade-svg-sage.php"
-        ]
+  "name": "log1x/blade-svg-sage",
+  "type": "package",
+  "license": "MIT",
+  "description": "Composer package to add support for Blade SVG by Adam Wathan to Roots Sage.",
+  "homepage": "https://github.com/log1x/blade-svg-sage",
+  "authors": [
+    {
+      "name": "Brandon Nifong",
+      "email": "brandon@tendency.me"
     }
+  ],
+  "keywords": [
+    "roots",
+    "sage",
+    "wordpress",
+    "blade",
+    "svg"
+  ],
+  "support": {
+    "issues": "https://github.com/Log1x/blade-svg-sage/issues"
+  },
+  "require": {
+    "php": ">=7.0",
+    "nothingworks/blade-svg": "^0.2.1",
+    "wikimedia/relpath": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "BladeSvgSage\\": "src/"
+    },
+    "files": [
+      "src/Helpers.php"
+    ]
+  }
 }
