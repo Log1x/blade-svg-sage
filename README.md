@@ -23,13 +23,13 @@ Use the provided filters below to modify the default configuration.
 
 ```php
 add_filter('bladesvg_spritesheet_path', function () {
-    return \BladeSvgSage\get_dist_path('images/svg/icons');
+    return \BladeSvgSage\BladeSvgSage::distPath('images/svg/icons');
 });
 ```
 
 ```php
 add_filter('bladesvg_image_path', function () {
-    return \BladeSvgSage\get_dist_path('images/svg/icons');
+    return \BladeSvgSage\BladeSvgSage::distPath('images/svg/icons');
 });
 ```
 
@@ -55,7 +55,7 @@ add_filter('bladesvg_sprite_prefix', function () {
 ```php
 <ul>
   <li>@svg('phone')</li>
-  <li>{!! \BladeSvgSage\get_svg('phone-alt') !!}</li>
+  <li>{!! \App\get_svg('phone-alt') !!}</li>
 </ul>
 ```
 
