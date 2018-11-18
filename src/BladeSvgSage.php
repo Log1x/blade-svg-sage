@@ -27,11 +27,6 @@ class BladeSvgSage
             return;
         }
 
-        $this->config = $this->config()->merge([
-            'svg_path'         => $this->path($this->config()->get('svg_path')),
-            'spritesheet_path' => $this->path($this->config()->get('spritesheet_path'))
-        ])->all();
-
         $this->register();
         $this->directives();
     }
@@ -48,7 +43,7 @@ class BladeSvgSage
         });
 
         sage()->singleton(SvgFactory::class, function () {
-            return new SvgFactory($this->config);
+            return new SvgFactory($this->config());
         });
     }
 
@@ -86,7 +81,12 @@ class BladeSvgSage
             return;
         }
 
-        return collect(apply_filters('bladesvg', require($config)));
+        $config = collect(apply_filters('bladesvg', require($config)));
+
+        return $config->merge([
+            'svg_path'         => $this->path($config->get('svg_path')),
+            'spritesheet_path' => $this->path($config->get('spritesheet_path'))
+        ])->all();
     }
 
     /**

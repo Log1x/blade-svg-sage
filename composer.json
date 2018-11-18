@@ -25,10 +25,8 @@
     "nothingworks/blade-svg": "^0.3.0"
   },
   "autoload": {
-    "psr-4": {
-      "BladeSvgSage\\": "src/"
-    },
     "files": [
+      "src/BladeSvgSage.php",
       "src/helpers.php"
     ]
   }
