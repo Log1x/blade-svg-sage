@@ -2,15 +2,35 @@
 
 namespace App;
 
+use BladeSvgSage\BladeSvgSage;
+
+/**
+ * Returns the rendered spritesheet.
+ *
+ * @return string
+ */
+if (! function_exists('svg_spritesheet')) {
+    function svg_spritesheet()
+    {
+        return sage(BladeSvgSage::class)->spritesheet();
+    }
+}
+
 /**
  * Returns the rendered SVG for the image specified.
  *
- * @param  string $image
+ * @param  string $name
  * @param  string $class
- * @param  array  $args
+ * @param  array  $attrs
  * @return string
  */
-function get_svg($image = '', $class = '', $args = [])
-{
-    return \BladeSvgSage\BladeSvgSage::render($image, $class, $args);
+if (! function_exists('svg_image')) {
+    function svg_image($name = '', $class = '', $attrs = [])
+    {
+        if (empty($name)) {
+            return;
+        }
+
+        return sage(BladeSvgSage::class)->svg($name, $class, $attrs);
+    }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2d48be51faa33161cf9e43fe7ef850d",
+    "content-hash": "01315e8de1fe03867de8811041678232",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -224,16 +224,16 @@
         },
         {
             "name": "nothingworks/blade-svg",
-            "version": "v0.2.2",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adamwathan/blade-svg.git",
-                "reference": "fad56a6e5fb970e55b9745e547106ca09273fe24"
+                "reference": "8747c4ff2c52f1a78a4b2aaae765cc961d9c9430"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adamwathan/blade-svg/zipball/fad56a6e5fb970e55b9745e547106ca09273fe24",
-                "reference": "fad56a6e5fb970e55b9745e547106ca09273fe24",
+                "url": "https://api.github.com/repos/adamwathan/blade-svg/zipball/8747c4ff2c52f1a78a4b2aaae765cc961d9c9430",
+                "reference": "8747c4ff2c52f1a78a4b2aaae765cc961d9c9430",
                 "shasum": ""
             },
             "require": {
@@ -270,7 +270,7 @@
                     "email": "adam.wathan@gmail.com"
                 }
             ],
-            "time": "2017-08-13T20:55:40+00:00"
+            "time": "2018-07-09T14:08:00+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -368,49 +368,6 @@
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
             "time": "2017-06-01T21:01:25+00:00"
-        },
-        {
-            "name": "wikimedia/relpath",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wikimedia/RelPath.git",
-                "reference": "35e701ff16abf461bb8676a9d9177f86fa0b2c94"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wikimedia/RelPath/zipball/35e701ff16abf461bb8676a9d9177f86fa0b2c94",
-                "reference": "35e701ff16abf461bb8676a9d9177f86fa0b2c94",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "jakub-onderka/php-parallel-lint": "^0.9.0.0",
-                "mediawiki/mediawiki-codesniffer": "15.0.0",
-                "phpunit/phpunit": "^4.8.9.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/RelPath/RelPath.php",
-                    "src/Wikimedia/RelPath.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ori Livneh",
-                    "email": "ori@wikimedia.org"
-                }
-            ],
-            "description": "Compute a relative filepath between two paths.",
-            "homepage": "https://www.mediawiki.org/wiki/RelPath",
-            "time": "2018-01-18T21:23:40+00:00"
         }
     ],
     "packages-dev": [],

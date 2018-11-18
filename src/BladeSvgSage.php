@@ -2,12 +2,9 @@
 
 namespace BladeSvgSage;
 
-/**
- * Return if BladeSvgSage already exists.
- */
-if (class_exists('BladeSvgSage')) {
-    return;
-}
+use BladeSvg\SvgFactory;
+
+use function App\sage;
 
 /**
  * Blade SVG for Sage
@@ -15,35 +12,43 @@ if (class_exists('BladeSvgSage')) {
 class BladeSvgSage
 {
     /**
+     * Configuration
+     *
+     * @var array
+     */
+    protected $config;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
-        if (!function_exists('\App\sage') || !class_exists('\BladeSvg\SvgFactory')) {
+        if (! function_exists('\App\\sage') || ! class_exists('\BladeSvg\\SvgFactory') || ! $this->config()) {
             return;
         }
+
+        $this->config = $this->config()->merge([
+            'svg_path'         => $this->path($this->config()->get('svg_path')),
+            'spritesheet_path' => $this->path($this->config()->get('spritesheet_path'))
+        ])->all();
 
         $this->register();
         $this->directives();
     }
 
     /**
-     * Register SvgFactory with the Sage container.
+     * Register BladeSvgSage and SvgFactory with the Sage container.
      *
-     * @return \BladeSvg\SvgFactory
+     * @return void
      */
     public function register()
     {
-        sage()->singleton(\BladeSvg\SvgFactory::class, function () {
-            $config = [
-                'spritesheet_path' => apply_filters('bladesvg_spritesheet_path', get_dist_path('images/svg/icons')),
-                'svg_path'         => apply_filters('bladesvg_image_path', get_dist_path('images/svg/icons')),
-                'inline'           => apply_filters('bladesvg_inline', true),
-                'class'            => apply_filters('bladesvg_class', 'svg'),
-                'sprite_prefix'    => apply_filters('bladesvg_sprite_prefix', '')
-            ];
+        sage()->singleton(BladeSvgSage::class, function () {
+            return $this;
+        });
 
-            return new \BladeSvg\SvgFactory($config);
+        sage()->singleton(SvgFactory::class, function () {
+            return new SvgFactory($this->config);
         });
     }
 
@@ -56,89 +61,70 @@ class BladeSvgSage
     {
         /** Create @icon() Blade directive */
         sage('blade')->compiler()->directive('icon', function ($expression) {
-            return "<?php echo e(\BladeSvgSage\BladeSvgSage::icon({$expression})) ?>";
+            return "<?php echo e(svg_image({$expression})) ?>";
         });
 
         /** Create @svg() Blade directive */
         sage('blade')->compiler()->directive('svg', function ($expression) {
-            return "<?php echo e(\BladeSvgSage\BladeSvgSage::icon({$expression})) ?>";
+            return "<?php echo e(svg_image({$expression})) ?>";
         });
+
+        /** Create @spritesheet Blade directive */
+        sage('blade')->compiler()->directive('spritesheet', function () {
+            return "<?php echo e(svg_spritesheet()) ?>";
+        });
+    }
+
+    /**
+     * Returns the config.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    protected function config()
+    {
+        if (! file_exists($config = __DIR__.'/../config/config.php')) {
+            return;
+        }
+
+        return collect(apply_filters('bladesvg', require($config)));
     }
 
     /**
      * Returns the local filesystem path to the theme directory.
      *
      * @param  string $path
-     * @param  string $directory
      * @return string
      */
-    public static function distPath($path = '', $directory = 'dist')
+    public function path($path = '')
     {
-        return str_finish(\App\config('theme.dir'), '/') . $directory . !empty($path) ? str_start($path, '/') : null;
+        return \App\config('theme.dir') . (! empty($path) ? str_start($path, '/') : null);
     }
 
     /**
-     * Returns the local filesystem path to the filtered SVG directory.
+     * Returns the rendered spritesheet.
      *
      * @return string
      */
-    public static function directory()
+    public function spritesheet()
     {
-        return apply_filters('bladesvg_image_path', self::distPath('images/svg/icons'));
+        return sage(SvgFactory::class)->spritesheet();
     }
 
     /**
-     * Returns the local filesystem path to the specified SVG.
+     * Returns the rendered SVG for the image specified.
      *
-     * @param  string $image
-     * @return string
-     */
-    public static function path($image = '')
-    {
-        if (empty($image)) {
-            return;
-        }
-
-        return str_finish(self::directory(), '/') . str_finish($image, '.svg');
-    }
-
-    /**
-     * Returns the local filesystem path to the specified cached busted SVG.
-     *
-     * @param  string $image
-     * @return string
-     */
-    public static function svg($image = '')
-    {
-        if (empty($image) || !class_exists('\Wikimedia\RelPath')) {
-            return;
-        }
-
-        $image = \Wikimedia\RelPath::getRelativePath(
-            \Wikimedia\RelPath::joinPath(
-                self::distPath(),
-                sage('assets')->get(RelPath::getRelativePath(self::path($image), self::distPath()))
-            ), self::directory()
-        );
-
-        return substr($image, 0, strrpos($image, '.'));
-    }
-
-    /**
-     * Returns the rendered SVG of the specified image.
-     *
-     * @param  string $image
+     * @param  string $name
      * @param  string $class
-     * @param  array  $args
+     * @param  array  $attrs
      * @return mixed
      */
-    public static function render($image = '', $class = '', $args = [])
+    public function svg($name = '', $class = '', $attrs = [])
     {
-        if (empty($image)) {
+        if (empty($name)) {
             return;
         }
 
-        return sage(\BladeSvg\SvgFactory::class)->svg(self::svg($image), $class, $attrs);
+        return sage(SvgFactory::class)->svg($name, $class, $attrs);
     }
 }
 
@@ -147,4 +133,4 @@ class BladeSvgSage
  */
 add_action('after_setup_theme', function () {
     return new BladeSvgSage;
-}, 30);
+}, 20);

@@ -6,6 +6,7 @@ Blade SVG for Sage is a wrapper for [Blade SVG](https://github.com/adamwathan/bl
 
 ## Requirements
 
+* [Sage](https://github.com/roots/sage) >= 9.0
 * [PHP](https://secure.php.net/manual/en/install.php) >= 7.0
 * [Composer](https://getcomposer.org/download/)
 
@@ -19,44 +20,21 @@ $ composer require log1x/blade-svg-sage
 
 ## Configuration
 
-Use the provided filters below to modify the default configuration.
+Use the provided configuration filter below to modify the default configuration.
 
 ```php
-add_filter('bladesvg_spritesheet_path', function () {
-    return \BladeSvgSage\BladeSvgSage::distPath('images/svg/icons');
-});
-```
-
-```php
-add_filter('bladesvg_image_path', function () {
-    return \BladeSvgSage\BladeSvgSage::distPath('images/svg/icons');
-});
-```
-
-```php
-add_filter('bladesvg_inline', function () {
-    return true;
-});
-```
-
-```php
-add_filter('bladesvg_class', function () {
-    return 'svg';
-});
-```
-
-```php
-add_filter('bladesvg_sprite_prefix', function () {
-    return '';
+add_filter('bladesvg', function () {
+    return [
+      'svg_path' => 'resources/svg',
+      'spritesheet_path' => 'resources/svg/spritesheet.svg',
+      'spritesheet_url' => '',
+      'sprite_prefix' => '',
+      'inline' => true,
+      'class' => ''
+    ];
 });
 ```
 
 ## Usage
-```php
-<ul>
-  <li>@svg('phone')</li>
-  <li>{!! \App\get_svg('phone-alt') !!}</li>
-</ul>
-```
 
-For more examples of usage, please refer to the original [Blade SVG documentation](https://github.com/adamwathan/blade-svg/blob/master/readme.md).
+Please refer to the original [Blade SVG documentation](https://github.com/adamwathan/blade-svg#basic-usage) for usage examples.
