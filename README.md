@@ -2,57 +2,39 @@
 
 [![Latest Stable Version](https://poser.pugx.org/log1x/blade-svg-sage/v/stable)](https://packagist.org/packages/log1x/blade-svg-sage) [![Total Downloads](https://poser.pugx.org/log1x/blade-svg-sage/downloads)](https://packagist.org/packages/log1x/blade-svg-sage)
 
-Blade SVG for Sage is a wrapper for [Blade SVG](https://github.com/adamwathan/blade-svg) by Adam Wathan allowing you to easily use SVG's in your Blade templates, either as inline SVG or using SVG sprites when using Sage 9.
+Blade SVG for Sage is a wrapper for [Blade SVG](https://github.com/adamwathan/blade-svg) by Adam Wathan allowing you to easily use SVG's in your Blade templates, either as an inline SVG or SVG sprite when using Sage 9.
+
+## Requirements
+
+* [Sage](https://github.com/roots/sage) >= 9.0
+* [PHP](https://secure.php.net/manual/en/install.php) >= 7.0
+* [Composer](https://getcomposer.org/download/)
 
 ## Installation
 
-#### Composer
-Install via Composer from your theme directory:
+Install via Composer:
 
-```
+```bash
 $ composer require log1x/blade-svg-sage
 ```
 
-## Setup
+## Configuration
 
-Edit `app/filters.php` on your Sage theme and use these filters to modify the default configuration (as in the examples below):
+Use the provided configuration filter below to modify the default configuration.
 
-```
-add_filter('bladesvg_spritesheet_path', function () {
-    return \BladeSvgSage\get_dist_path('images/svg/icons');
-});
-```
-
-```
-add_filter('bladesvg_image_path', function () {
-    return \BladeSvgSage\get_dist_path('images/svg/icons');
-});
-```
-
-```
-add_filter('bladesvg_inline', function () {
-    return true;
-});
-```
-
-```
-add_filter('bladesvg_class', function () {
-    return 'svg';
-});
-```
-
-```
-add_filter('bladesvg_sprite_prefix', function () {
-    return '';
+```php
+add_filter('bladesvg', function () {
+    return [
+      'svg_path' => 'resources/svg',
+      'spritesheet_path' => 'resources/svg/spritesheet.svg',
+      'spritesheet_url' => '',
+      'sprite_prefix' => '',
+      'inline' => true,
+      'class' => ''
+    ];
 });
 ```
 
 ## Usage
-```
-<ul>
-  <li>@svg('phone')</li>
-  <li>{{ \BladeSvgSage\svg_image('phone-alt') }}</li>
-</ul>
-```
 
-For more examples of usage, please refer to the original [blade-svg readme](https://github.com/adamwathan/blade-svg/blob/master/readme.md).
+Please refer to the original [Blade SVG documentation](https://github.com/adamwathan/blade-svg#basic-usage) for usage examples.
