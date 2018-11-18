@@ -25,12 +25,12 @@ Use the provided configuration filter below to modify the default configuration.
 ```php
 add_filter('bladesvg', function () {
     return [
-      'svg_path' => 'resources/svg',
-      'spritesheet_path' => 'resources/svg/spritesheet.svg',
-      'spritesheet_url' => '',
-      'sprite_prefix' => '',
-      'inline' => true,
-      'class' => ''
+        'svg_path' => 'resources/svg',
+        'spritesheet_path' => 'resources/svg/spritesheet.svg',
+        'spritesheet_url' => '',
+        'sprite_prefix' => '',
+        'inline' => true,
+        'class' => ''
     ];
 });
 ```
