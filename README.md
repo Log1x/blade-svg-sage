@@ -38,3 +38,5 @@ add_filter('bladesvg', function () {
 ## Usage
 
 Please refer to the original [Blade SVG documentation](https://github.com/adamwathan/blade-svg#basic-usage) for usage examples.
+
+Note: When calling helper functions directly, you must use the `App` namespace.

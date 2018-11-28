@@ -23,7 +23,7 @@ class BladeSvgSage
      */
     public function __construct()
     {
-        if (! function_exists('\App\\sage') || ! class_exists('\BladeSvg\\SvgFactory') || ! $this->config()) {
+        if (! function_exists('App\\sage') || ! class_exists('BladeSvg\\SvgFactory') || ! $this->config()) {
             return;
         }
 
@@ -56,17 +56,17 @@ class BladeSvgSage
     {
         /** Create @icon() Blade directive */
         sage('blade')->compiler()->directive('icon', function ($expression) {
-            return "<?php echo e(svg_image({$expression})) ?>";
+            return "<?php echo e(App\svg_image({$expression})) ?>";
         });
 
         /** Create @svg() Blade directive */
         sage('blade')->compiler()->directive('svg', function ($expression) {
-            return "<?php echo e(svg_image({$expression})) ?>";
+            return "<?php echo e(App\svg_image({$expression})) ?>";
         });
 
         /** Create @spritesheet Blade directive */
         sage('blade')->compiler()->directive('spritesheet', function () {
-            return "<?php echo e(svg_spritesheet()) ?>";
+            return "<?php echo e(App\svg_spritesheet()) ?>";
         });
     }
 

@@ -9,7 +9,7 @@ use BladeSvgSage\BladeSvgSage;
  *
  * @return string
  */
-if (! function_exists('svg_spritesheet')) {
+if (! function_exists('App\\svg_spritesheet')) {
     function svg_spritesheet()
     {
         return sage(BladeSvgSage::class)->spritesheet();
@@ -24,7 +24,7 @@ if (! function_exists('svg_spritesheet')) {
  * @param  array  $attrs
  * @return string
  */
-if (! function_exists('svg_image')) {
+if (! function_exists('App\\svg_image')) {
     function svg_image($name = '', $class = '', $attrs = [])
     {
         if (empty($name)) {
