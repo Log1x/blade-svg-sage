@@ -131,6 +131,8 @@ class BladeSvgSage
 /**
  * Initialize BladeSvgSage
  */
-add_action('after_setup_theme', function () {
-    return new BladeSvgSage;
-}, 20);
+if (function_exists('add_action')) {
+    add_action('after_setup_theme', function () {
+        return new BladeSvgSage;
+    }, 20);
+}
