@@ -4,6 +4,8 @@
 
 Blade SVG for Sage is a wrapper for [Blade SVG](https://github.com/adamwathan/blade-svg) by Adam Wathan allowing you to easily use SVG's in your Blade templates, either as an inline SVG or SVG sprite when using Sage 9.
 
+**Using Sage 10?** Check out [**Sage SVG**](https://github.com/Log1x/sage-svg).
+
 ## Requirements
 
 * [Sage](https://github.com/roots/sage) >= 9.0
