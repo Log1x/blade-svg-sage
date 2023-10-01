@@ -22,9 +22,13 @@
   },
   "require": {
     "php": ">=7.0",
-    "nothingworks/blade-svg": "^0.3.0"
+    "illuminate/support": "^5.3|^6.0|^7.0|^8.0",
+    "illuminate/filesystem": "^5.3|^6.0|^7.0|^8.0"
   },
   "autoload": {
+    "psr-4": {
+      "BladeSvg\\": "src/BladeSvg"
+    },
     "files": [
       "src/BladeSvgSage.php",
       "src/helpers.php"

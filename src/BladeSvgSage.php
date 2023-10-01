@@ -3,6 +3,7 @@
 namespace BladeSvgSage;
 
 use BladeSvg\SvgFactory;
+use Illuminate\Support\Str;
 
 use function App\sage;
 
@@ -97,7 +98,7 @@ class BladeSvgSage
      */
     public function path($path = '')
     {
-        return \App\config('theme.dir') . (! empty($path) ? str_start($path, '/') : null);
+        return \App\config('theme.dir') . (! empty($path) ? Str::start($path, '/') : null);
     }
 
     /**
