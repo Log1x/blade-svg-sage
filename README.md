@@ -32,7 +32,8 @@ add_filter('bladesvg', function () {
         'spritesheet_url' => '',
         'sprite_prefix' => '',
         'inline' => true,
-        'class' => ''
+        'class' => '',
+        'fallback_name' => 'fallback'
     ];
 });
 ```
