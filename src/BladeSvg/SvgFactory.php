@@ -101,8 +101,18 @@ class SvgFactory
 
     public function getSvg($name)
     {
-        return $this->svgCache->get($name, function () use ($name) {
-            return $this->svgCache[$name] = trim($this->files->get(sprintf('%s/%s.svg', rtrim($this->svgPath()), str_replace('.', '/', $name))));
+        $fallback = $this->config['fallback_name'];
+        return $this->svgCache->get($name, function () use ($name, $fallback) {
+            try {
+                return $this->svgCache[$name] = trim($this->files->get(sprintf('%s/%s.svg', rtrim($this->svgPath()), str_replace('.', '/', $name))));
+            } catch (\Illuminate\Contracts\Filesystem\FileNotFoundException $e) {
+                // if no fallback set, throw exception
+                if (!$fallback || $name === $fallback) {
+                    throw $e;
+                }
+
+                return $this->getSvg($fallback); // fallback_name as name
+            }
         });
     }
 }
